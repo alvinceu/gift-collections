@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  VITE_BASE_PATH:/gift-collections/
-  VITE_API_BASE_URL:https://gift-collections.onrender.com
+  VITE_BASE_PATH: /gift-collections/
+  VITE_API_BASE_URL: https://gift-collections.onrender.com
   
 permissions:
   contents: read
