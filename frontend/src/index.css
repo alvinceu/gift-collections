@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-[#F7ECE6] text-[#1A1A1D];
+  }
+  
+  body {
+    @apply bg-[#F7ECE6] text-[#1A1A1D];
+  }
+  
+  /* Темная тема */
+  html.dark {
+    @apply bg-[#0D0D0F] text-[#F4EFEA];
+  }
+  
+  html.dark body {
+    @apply bg-[#0D0D0F] text-[#F4EFEA];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-[#CAA07D] text-white rounded-lg hover:bg-[#B88B67] transition-colors focus:outline-none focus:ring-2 focus:ring-[#CAA07D] focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-[#FFF7F2] dark:bg-[#232327] text-[#1A1A1D] dark:text-[#F4EFEA] rounded-lg hover:bg-[#FFFFFF] dark:hover:bg-[#1B1B1F] transition-colors focus:outline-none focus:ring-2 focus:ring-[#CAA07D] focus:ring-offset-2;
+  }
+  
+  .btn-danger {
+    @apply px-4 py-2 bg-[#C46A5A] dark:bg-[#D07A6A] text-white rounded-lg hover:opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C46A5A] dark:focus:ring-[#D07A6A] focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-[#E6DAD2] dark:border-[#2A2A2E] rounded-lg bg-[#FFFFFF] dark:bg-[#1B1B1F] text-[#1A1A1D] dark:text-[#F4EFEA] focus:outline-none focus:ring-2 focus:ring-[#CAA07D] focus:border-transparent placeholder:text-[#9C948E] dark:placeholder:text-[#8E8883];
+  }
+  
+  .card {
+    @apply bg-[#FFFFFF] dark:bg-[#1B1B1F] rounded-lg shadow-md p-6 border border-[#E6DAD2] dark:border-[#2A2A2E];
+  }
+  
+  .card-hover {
+    @apply card transition-all hover:bg-[#FFF7F2] dark:hover:bg-[#232327] hover:shadow-lg;
+  }
+  
+  .text-secondary {
+    @apply text-[#5F5A56] dark:text-[#C9C3BD];
+  }
+  
+  .text-muted {
+    @apply text-[#9C948E] dark:text-[#8E8883];
+  }
+  
+  .price-text {
+    @apply text-[#CAA07D] font-bold;
+  }
+  
+  .collection-gradient {
+    @apply bg-gradient-to-b from-[#F7ECE6] to-[#FFF7F2] dark:from-[#0D0D0F] dark:to-[#1B1B1F];
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}

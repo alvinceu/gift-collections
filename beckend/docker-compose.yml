@@ -1,0 +1,25 @@
+﻿services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gift_collection
+    ports:
+      - '5432:5432'
+
+  backend:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      PORT: 3000
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_NAME: gift_collection
+    ports:
+      - "3000:3000"

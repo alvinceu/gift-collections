@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthResponseType {
+  accessToken: String!
+  user: UserType!
+}
+
+type CollectionType {
+  authorId: String!
+  authorName: String!
+  coverImage: String!
+  createdAt: String!
+  description: String!
+  id: ID!
+  items: [GiftItemType!]!
+  tags: [String!]!
+  title: String!
+  updatedAt: String!
+}
+
+input CreateCollectionInput {
+  coverImage: String
+  description: String
+  tags: [String!]
+  title: String!
+}
+
+input CreateGiftItemInput {
+  currency: String!
+  description: String
+  image: String
+  link: String
+  price: Float!
+  tags: [String!]
+  title: String!
+}
+
+type GiftItemType {
+  createdAt: String!
+  currency: String!
+  description: String!
+  id: ID!
+  image: String!
+  link: String!
+  price: Float!
+  tags: [String!]!
+  title: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createCollection(input: CreateCollectionInput!): CollectionType!
+  createGiftItem(collectionId: ID!, input: CreateGiftItemInput!): GiftItemType!
+  createTag(name: String!): TagType!
+  deleteCollection(id: ID!): Boolean!
+  deleteGiftItem(collectionId: ID!, itemId: ID!): Boolean!
+  login(input: LoginInput!): AuthResponseType!
+  register(input: RegisterInput!): AuthResponseType!
+  removeTag(id: ID!): Boolean!
+  updateCollection(id: ID!, input: UpdateCollectionInput!): CollectionType!
+  updateGiftItem(collectionId: ID!, input: UpdateGiftItemInput!, itemId: ID!): GiftItemType!
+}
+
+type Query {
+  collection(id: ID!): CollectionType!
+  collections(search: String, tags: [String!]): [CollectionType!]!
+  profile: UserType!
+  tags: [TagType!]!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type TagType {
+  id: ID!
+  name: String!
+}
+
+input UpdateCollectionInput {
+  coverImage: String
+  description: String
+  tags: [String!]
+  title: String
+}
+
+input UpdateGiftItemInput {
+  currency: String
+  description: String
+  image: String
+  link: String
+  price: Float
+  tags: [String!]
+  title: String
+}
+
+type UserType {
+  createdAt: String!
+  email: String!
+  id: String!
+  name: String!
+}
