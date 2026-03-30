@@ -11,18 +11,7 @@ import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 import NotFound from '@/pages/NotFound';
 
-const getBasePath = (): string => {
-  if (import.meta.env.MODE === 'production') {
-    const pathname = window.location.pathname;
-    const repoName = 'project-frontend-sem5';
-    if (pathname.startsWith(`/${repoName}/`) || pathname === `/${repoName}`) {
-      return `/${repoName}/`;
-    }
-  }
-  return '/';
-};
-
-const basename = getBasePath();
+const basename = import.meta.env.VITE_BASE_PATH;
 
 export const router = createBrowserRouter([
   {
